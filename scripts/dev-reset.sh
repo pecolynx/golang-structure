@@ -1,0 +1,2 @@
+migrate -database 'mysql://user:password@tcp(127.0.0.1:3306)/development' -source file://src/sqls/mysql/ drop
+migrate -database 'mysql://user:password@tcp(127.0.0.1:3306)/development' -source file://src/sqls/mysql/ up

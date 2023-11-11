@@ -1,0 +1,37 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "src_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/pecolynx/golang-structure/src",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//lib/config",
+        "//lib/errors",
+        "//lib/gateway",
+        "//src/config",
+        "//src/controller",
+        "//src/gateway",
+        "//src/service",
+        "//src/sqls",
+        "@com_github_gin_gonic_gin//:gin",
+        "@com_github_sirupsen_logrus//:logrus",
+        "@com_github_swaggo_files//:files",
+        "@com_github_swaggo_gin_swagger//:gin-swagger",
+        "@com_github_swaggo_swag//example/basic/docs",
+        "@io_gorm_gorm//:gorm",
+        "@io_opentelemetry_go_contrib_instrumentation_google_golang_org_grpc_otelgrpc//:otelgrpc",
+        "@io_opentelemetry_go_otel//:otel",
+        "@io_opentelemetry_go_otel//propagation",
+        "@io_opentelemetry_go_otel_sdk//trace",
+        "@org_golang_google_grpc//:go_default_library",
+        "@org_golang_google_grpc//credentials/insecure",
+        "@org_golang_x_sync//errgroup",
+    ],
+)
+
+go_binary(
+    name = "src",
+    embed = [":src_lib"],
+    visibility = ["//visibility:public"],
+)
