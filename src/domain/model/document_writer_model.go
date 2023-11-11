@@ -10,7 +10,6 @@ import (
 type DocumentWriterModel interface {
 	usermodel.AppUserModel
 	GetAppUserID() usermodel.AppUserID
-	IsStudentModel() bool
 }
 
 type documentWriterModel struct {
@@ -32,8 +31,4 @@ func NewDocumentWriterModel(appUserModel usermodel.AppUserModel) (DocumentWriter
 
 func (m *documentWriterModel) GetAppUserID() usermodel.AppUserID {
 	return m.AppUserModel.GetAppUserID()
-}
-
-func (m *documentWriterModel) IsStudentModel() bool {
-	return true
 }

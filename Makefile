@@ -24,17 +24,6 @@ lint:
 
 		# golangci-lint run --config ../.github/.golangci.yml && \
 
-gazelle:
-	# sudo chmod 777 -R docker/development
-	@bazel run //:gazelle -- update-repos -from_file ./go.mod
-	@bazel run //:gazelle
-
-build:
-	@bazel build //...
-
-run:
-	@bazel run //src
-
 dev-docker-up:
 	@docker compose -f docker/development/docker-compose.yml up -d
 

@@ -14,6 +14,7 @@ linters-settings:
   forbidigo:
     forbid:
       - domain.Validator
+      - "return err"
       # - (http|HTTP)
       # - documentModel
       - p: http.StatusAccepted

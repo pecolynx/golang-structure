@@ -34,10 +34,6 @@ func WithLoggerName(ctx context.Context, val domain.ContextKey) context.Context 
 
 // GetLoggerFromContext Gets the logger from context
 func GetLoggerFromContext(ctx context.Context, key domain.ContextKey) *slog.Logger {
-	if ctx == nil {
-		panic("nil context")
-	}
-
 	logger, ok := ctx.Value(key).(*slog.Logger)
 	if ok {
 		return logger

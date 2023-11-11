@@ -1,9 +1,0 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
-
-go_library(
-    name = "usecase",
-    srcs = ["user_usecase_workbook.go"],
-    importpath = "github.com/pecolynx/golang-structure/src/usecase",
-    visibility = ["//visibility:public"],
-    deps = ["//src/service"],
-)
