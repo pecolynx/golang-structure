@@ -6,5 +6,6 @@ import (
 )
 
 //go:embed mysql/*.sql
-//go:embed sqlite3/*.sql
 var SQL embed.FS
+
+////go:embed sqlite3/*.sql

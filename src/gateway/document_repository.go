@@ -22,6 +22,11 @@ import (
 	// "github.com/kujilabo/cocotola/cocotola-api/src/app/gateway/casbinquery"
 )
 
+func f() {
+	var Id int  // want "NG"
+	println(Id) // want "NG"
+}
+
 type documentEntity struct {
 	ID        string
 	Version   int

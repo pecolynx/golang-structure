@@ -1,0 +1,30 @@
+version: 3
+workdir: ./
+allow:
+  depOnAnyVendor: false
+vendors:
+  go-common:           { in: golang.org/x/sync/errgroup }
+components:
+  domain:    { in: src/domain/** }           # wildcard one level
+  controller:    { in: src/controller/** }           # wildcard one level
+  gateway:    { in: src/gateway/** }           # wildcard one level
+  log:    { in: src/log/** }           # wildcard one level
+  # service:    { in: services/** }          # wildcard many levels
+  # repository: { in: domain/*/repository }  # wildcard DDD repositories
+  # model:      { in: models }               # match exactly one package
+
+# commonComponents:
+#   - model
+
+deps:
+  controller:
+    # mayDependOn:
+    #   - service
+    canUse:
+      - go-common
+  gateway:
+    mayDependOn:
+      - domain
+  # service:
+  #   mayDependOn:
+  #     - repository
